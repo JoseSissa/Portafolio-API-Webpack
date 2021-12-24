@@ -1,0 +1,36 @@
+* git init -> para el repositorio local
+* npm init -y -> para la creacion del package.json
+
+* npm install webpack webpack-cli -D -> para tener webpack y la interfaz de linea de comando para trabajar con él.
+                                      -D -> Para decirle que trabajaramos con él en el modo de desarrollo. (Y sólo esta en el proyecto, no de forma global).
+* npx webpack -> Lee el projecto, identifica el archivo index.js o todos los archivos js y nos va a preparar nuestro proyecto.
+* npx webpack --mode development -> para activar el modo desarrollo, lo que activa una particular vista al main.js que nos    ayudará a detectar errores y saber desde donde se originan.
+* npx webpack --mode production -> para activar el modo de producción del proyecto, comprime renderiza y mejora nuestro codigo js
+* webpack.config.js -> Nuestro archivo principal, se añaden las configuraciones que tendrá nuestro proyecto.
+* npx webpack --mode production --config webpack.config.js -> va a preparar la configuraciones del archivo webpack.config
+
+* npm install -D babel-loader @babel/core @babel/preset-env @babel/plugin-transform-runtime
+-> Dependencias de babel para hacer que js sea compatible con todos los navegadores.
+-> LA configuración de babel se hace en el archivo .babelrc y en webpack.config.js para que este último lo use.
+
+Para renderizar el codigo HTML usamos 
+* npm i html-webpack-plugin -D -> Es un plugin para inyectar javascript, css, favicons, y nos facilita la tarea de enlazar los bundles a nuestro template HTML.
+
+Para renderizar el codigo css o de preprocesadores
+*npm i mini-css-extract-plugin css-loader -D -> El loader es para que reconozca a CSS y el plugin es para trabajar con CSS dividido en diferentes partes de nuestra aplicación y unirlo.
+
+* npm i copy-webpack-plugin -D -> Para mover o copiar un archivo o directorio a el proyecto final. (De src a dist).
+Puedes usar una forma de importar las imágenes haciendo un import de las mismas y generando una variable
+No es necesario instalar ninguna dependencia, webpack ya lo tiene incluido debemos agregar la siguiente configuración
+
+Optimización para las fuentes: 
+* https://google-webfonts-helper.herokuapp.com/fonts/ubuntu?subsets=cyrillic,latin -> Recursos de fonts
+
+Alias ⇒ nos permiten otorgar nombres paths específicos evitando los paths largos
+
+Para el manejo de las variables de entorno usamos:
+* npm i dotenv-webpack -D -> Estas variables de entorno nunca se suben al repositorio.
+
+Webpack en modo desarrollo: --> no tiene la optimización del código debido a que es el lado de desarrollo.
+
+* npm i clean-webpack-plugin -D - Webpack en modo producción: --> Este plugin nos permite que nuestro codigo se lipie cada vez que lo ejecutamos para producción.
